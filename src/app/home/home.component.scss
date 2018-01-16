@@ -1,0 +1,46 @@
+#map{
+    height:300px;
+}
+.mapboxgl-map{
+    height: 300px;
+}
+
+.chat-content{
+    margin-left:50px;
+    margin-right:125px;
+    width: -webkit-calc(100% - 175px);
+    width:    -moz-calc(100% - 175px);
+    width:         calc(100% - 175px);
+    text-align: left;
+}
+
+.result-tag{
+    position:absolute;
+    top:0;
+    right:0;
+}
+.apps{
+    border-top: 1px solid #e9f0f3   ;
+    padding:5px;
+    margin: 0;
+}
+
+.result{
+    margin: 0;
+}
+@media(max-width:768px){
+.chat-bar{
+    padding-left: 0;
+    padding-right: 0;
+
+}
+}
+
+.panel-body{
+    height:215px;
+    overflow-y: scroll;
+}
+
+#search-bar{
+    margin: 0;
+}

@@ -1,0 +1,87 @@
+<!-- <div class="container">
+      <div class="row">
+            <div class="col-lg-8 col-offset-2">
+                  <div class="input-group custom-search-form">
+                        <input type="text" placeholder="content" style="width:80%" class="form-control">
+                        <input type="text" placeholder="city" style="width:20%" class="form-control">
+                        <span class="input-group-btn">
+              <button class="btn btn-primary" type="button">
+              <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+                  </div>
+
+            </div>
+
+      </div>
+
+      <ul>
+            <li *ngFor="let item of items | async  | paginate: { itemsPerPage: 10, currentPage: p }">
+                  <input type="text" #updatetext [value]="item.name" />
+                  {{item.date}}
+                  <button (click)="updateItem(item.key, updatetext.value)">Update</button>
+                  <button (click)="deleteItem(item.key)">Delete</button>
+            </li>
+      </ul>
+      <input type="text" #newitem />
+      <button (click)="addItem(newitem.value)">Add</button>
+      <button (click)="deleteEverything()">Delete All</button>
+      
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+</div> -->
+
+
+
+
+<div class="container">
+      <div class="row" *ngIf="authService.userInfo != null">
+            <div class="col-md-8 col-xs-12 chat-bar">
+                  <map-box></map-box>
+            </div>
+
+
+            <div class="col-md-4 col-xs-12 chat-bar">
+                  <div class="panel panel-primary">
+                        <div class="panel-heading" id="accordion">
+                              <span class="glyphicon glyphicon-comment"></span> Chat
+                              <div class="btn-group pull-right">
+                                    <a type="button" class="btn btn-default btn-xs" (click)="openchat($event)" data-toggle="collapse" data-parent="#accordion"
+                                          href="#collapseOne">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </a>
+                              </div>
+                        </div>
+                        <div class="panel-collapse collapse" id="collapseOne">
+                              <div class="panel-body" #scrollMe>
+                                    <div class="result-body">
+                                          <div class="row result" style="width:100%">
+                                                <div class="col-md-12 apps row" *ngFor="let item of items | async">
+                                                      <div class="result-type" style="width:45px;float:left"><img [src]="item.img" width="45" height="45"></div>
+                                                      <div class="chat-content">
+                                                            <div class="result-name" style="font-size:15px;">{{item.user == null ? "Unknown": item.user}}</div>
+                                                            <div class="result-intro" style="font-size:12px;">{{item.content}}</div>
+                                                      </div>
+                                                      <div class="result-tag" style="width:125px;">
+                                                            <small class="pull-right text-muted"><span class="glyphicon glyphicon-time"></span>{{item.date| amTimeAgo}}</small>
+
+                                                      </div>
+                                                </div>
+                                          </div>
+                                    </div>
+                              </div>
+                              <div class="panel-footer">
+                                    <div class="input-group">
+                                          <input id="btn-input" required [(ngModel)]="filtervalue" type="text" class="form-control input-sm" placeholder="Type your message here..."
+                                          />
+                                          <span class="input-group-btn">
+                                    <button class="btn btn-warning btn-sm" (click)="addItem(filtervalue)" id="btn-chat">
+                                        Send</button>
+                                </span>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+      </div>
+</div>

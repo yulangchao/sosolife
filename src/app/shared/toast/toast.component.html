@@ -1,0 +1,14 @@
+<div *ngIf="message.body" class="alert alert-{{message.type}} alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <strong>Message:</strong> <i class="fa fa-spinner fa-spin fa-fw" *ngIf="message.icon"></i> {{message.body}}
+  <audio *ngIf="message.body.indexOf('join') >= 0" style="display:none" controls autoplay>
+    <source src="../../../assets/audio/login.wav" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <audio *ngIf="message.body.indexOf('left') >= 0" style="display:none" controls autoplay>
+    <source src="../../../assets/audio/leave.wav" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
